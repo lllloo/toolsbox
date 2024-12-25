@@ -16,10 +16,16 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
   skipFormatting,
+  {
+    rules: {
+      'vue/no-multiple-template-root': 'off', //在單文件組件中，模板根節點應該是唯一的
+      'vue/multi-word-component-names': 'off', //Vue 組件的名稱應該是多詞的，以提高可讀性和維護性
+    },
+  },
 ]
