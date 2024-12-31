@@ -1,27 +1,36 @@
 <script setup lang="ts">
-import { Icon as Iconify, type IconifyIconProps } from '@iconify/vue'
-import { defineAsyncComponent } from 'vue'
+import { Icon as Iconify } from '@iconify/vue'
 
-type IconProps = IconifyIconProps | { name: string }
+type IconProps = { icon: string; name?: string } | { icon?: string; name: string }
+const props = defineProps<IconProps>()
 
-const props = withDefaults(defineProps<IconProps>(), {
-  icon: '',
-  name: '',
+const IconComponent = defineAsyncComponent(() => {
+  return import(`@/assets/icon/${props.name}.svg`)
 })
 
-const iconComponent = defineAsyncComponent(() => {
-  if (!('name' in props && props.name)) return Promise.reject()
-  return import(`/src/assets/icon/${props.name}.svg`)
+const isIconify = computed(() => !!('icon' in props && props.icon))
+
+const iconProps = computed(() => {
+  if (isIconify.value) {
+    return props
+  } else {
+    return {
+      ...props,
+      width: '1em',
+      height: '1em',
+    }
+  }
 })
 </script>
 
 <template>
   <span>
-    <template v-if="'icon' in props && props.icon">
-      <Iconify v-bind="props" />
-    </template>
-    <template v-else>
-      <component :is="iconComponent" width="1em" height="1em" class="fill-current" />
-    </template>
+    <component :is="isIconify ? Iconify : IconComponent" v-bind="iconProps" />
   </span>
 </template>
+
+<style scoped>
+svg {
+  fill: currentColor;
+}
+</style>
