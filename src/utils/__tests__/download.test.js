@@ -1,20 +1,14 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 
-describe('downloadFile', () => {
-  afterEach(() => {
-    vi.restoreAllMocks()
-  })
-
-  it('應該創建一個鏈接並觸發下載', () => {
-    const link = document.createElement('a')
-    const clickSpy = vi.spyOn(link, 'click')
-    vi.spyOn(document, 'createElement').mockReturnValue(link)
-
-    downloadFile('http://example.com/file.txt', 'file.txt')
-
-    expect(link.href).toBe('http://example.com/file.txt')
-    expect(link.download).toBe('file.txt')
-    expect(clickSpy).toHaveBeenCalled()
+describe('getDownloadFile', () => {
+  it('應該使用正確的Blob調用downloadBlob', () => {
+    const mockResponse = {
+      data: new Blob(['測試數據'], { type: 'text/plain' }),
+      headers: { 'content-type': 'text/plain' },
+    }
+    const mockFn = vi.fn()
+    getDownloadFile(mockResponse, mockFn)
+    expect(mockFn).toHaveBeenCalledWith(mockResponse.data)
   })
 })
 
@@ -53,5 +47,23 @@ describe('downloadBlob', () => {
     expect(clickSpy).toHaveBeenCalled()
     expect(createObjectURLSpy).toHaveBeenCalledWith(blob)
     expect(revokeObjectURLSpy).toHaveBeenCalledWith(mockUrl)
+  })
+})
+
+describe('downloadFile', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('應該創建一個鏈接並觸發下載', () => {
+    const link = document.createElement('a')
+    const clickSpy = vi.spyOn(link, 'click')
+    vi.spyOn(document, 'createElement').mockReturnValue(link)
+
+    downloadFile('http://example.com/file.txt', 'file.txt')
+
+    expect(link.href).toBe('http://example.com/file.txt')
+    expect(link.download).toBe('file.txt')
+    expect(clickSpy).toHaveBeenCalled()
   })
 })
