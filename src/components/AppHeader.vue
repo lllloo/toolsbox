@@ -21,10 +21,6 @@ const list = ref([
     url: '/cards',
   },
   {
-    name: 'Word',
-    url: '/word',
-  },
-  {
     name: 'Login',
     url: '/login',
   },
