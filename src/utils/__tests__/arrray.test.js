@@ -21,9 +21,6 @@ describe('hasDuplicate', () => {
 describe('range', () => {
   it('應該生成從開始到結束（包含結束）的數字範圍', () => {
     expect(range(0, 5)).toEqual([0, 1, 2, 3, 4, 5])
-  })
-
-  it('應該生成從開始到結束（包含結束）的數字範圍', () => {
     expect(range(3, 6)).toEqual([3, 4, 5, 6])
   })
 
