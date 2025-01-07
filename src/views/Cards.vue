@@ -4,6 +4,16 @@
   <div class="h-[calc(100dvh-130px)] relative flex-1">
     <section class="p-4 grid grid-cols-[repeat(auto-fit,_minmax(340px,_1fr))] gap-4 bg-[#F5F5F5]">
       <div>
+        <ProductCard
+          :data="{
+            src: 'https://picsum.photos/500',
+            title: 'Product Title - Product Title Product Title Product Title',
+            price: 2000,
+            discountPrice: 1280,
+          }"
+        />
+      </div>
+      <div>
         <UserPostCard
           :data="{
             name: 'John Doe',
