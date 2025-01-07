@@ -13,27 +13,27 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('../views/Dashboard.vue'),
+      component: () => import('@/views/Dashboard.vue'),
     },
     {
       path: '/banner',
       name: 'banner',
-      component: () => import('../views/Banner.vue'),
+      component: () => import('@/views/Banner.vue'),
     },
     {
       path: '/products',
       name: 'products',
-      component: () => import('../views/Products.vue'),
+      component: () => import('@/views/Products.vue'),
     },
     {
       path: '/cards',
       name: 'cards',
-      component: () => import('../views/Cards.vue'),
+      component: () => import('@/views/Cards.vue'),
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue'),
+      component: () => import('@/views/Login.vue'),
     },
   ],
 })
