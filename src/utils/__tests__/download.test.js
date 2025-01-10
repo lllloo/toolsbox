@@ -57,13 +57,13 @@ describe('downloadFile', () => {
 
   it('應該創建一個鏈接並觸發下載', () => {
     const link = document.createElement('a')
-    const clickSpy = vi.spyOn(link, 'click')
+    link.click = vi.fn()
     vi.spyOn(document, 'createElement').mockReturnValue(link)
 
     downloadFile('http://example.com/file.txt', 'file.txt')
 
     expect(link.href).toBe('http://example.com/file.txt')
     expect(link.download).toBe('file.txt')
-    expect(clickSpy).toHaveBeenCalled()
+    expect(link.click).toHaveBeenCalled()
   })
 })
