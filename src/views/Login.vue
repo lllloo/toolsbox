@@ -2,7 +2,7 @@
 
 <template>
   <div class="bg-[#f9f9f9] overflow-hidden">
-    <div class="max-w-[520px] m-10 ml-auto">
+    <div class="max-w-[520px] m-10 sm:ml-auto">
       <LoginCard />
     </div>
   </div>
