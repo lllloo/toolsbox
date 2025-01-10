@@ -1,4 +1,5 @@
 import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
+import { alertError } from '@/utils/alert'
 
 const errorCode: { [key: number]: string } = {
   400: '請求錯誤，請檢查您的輸入',
@@ -8,7 +9,7 @@ const errorCode: { [key: number]: string } = {
 }
 
 const errorAlert = (msg: string) => {
-  console.error(msg)
+  alertError(msg)
 }
 
 const axiosInstance = axios.create({

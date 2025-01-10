@@ -1,6 +1,7 @@
-import { describe, it, expect, beforeAll, afterEach, afterAll } from 'vitest'
+import { describe, it, expect, vi, beforeAll, afterEach, afterAll } from 'vitest'
 import { setupServer } from 'msw/node'
 import { http, HttpResponse } from 'msw'
+import * as alertModule from '@/utils/alert'
 
 const server = setupServer()
 beforeAll(() => server.listen())
@@ -33,7 +34,12 @@ describe('axios success', () => {
 })
 
 describe('axios error', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('baseGet 401', async () => {
+    const spyAlert = vi.spyOn(alertModule, 'alertError')
     server.use(
       http.get('/api/hasToken', () => {
         return new HttpResponse(null, {
@@ -45,10 +51,12 @@ describe('axios error', () => {
       await baseGet('/hasToken')
     } catch (error) {
       expect(error.response.status).toEqual(401)
+      expect(spyAlert).toHaveBeenCalled()
     }
   })
 
   it('basePost 401', async () => {
+    const spyAlert = vi.spyOn(alertModule, 'alertError')
     server.use(
       http.post('/api/hasToken', () => {
         return new HttpResponse(null, {
@@ -60,6 +68,7 @@ describe('axios error', () => {
       await basePost('/hasToken')
     } catch (error) {
       expect(error.response.status).toEqual(401)
+      expect(spyAlert).toHaveBeenCalled()
     }
   })
 })
