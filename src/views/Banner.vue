@@ -17,7 +17,7 @@ const list = ref([
 
 <template>
   <div>
-    <section class="h-dvh flex-1">
+    <section class="h-[calc(100dvh-130px)] flex-1">
       <BannerSwiper :list="list" />
     </section>
   </div>

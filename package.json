@@ -26,6 +26,7 @@
     "pinia": "^2.3.0",
     "qs": "^6.13.1",
     "radix-vue": "^1.9.11",
+    "reka-ui": "^1.0.0-alpha.8",
     "sweetalert2": "^11.15.10",
     "swiper": "^11.2.0",
     "tailwind-merge": "^2.6.0",
