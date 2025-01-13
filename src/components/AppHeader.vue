@@ -24,6 +24,10 @@ const list = ref([
     name: 'Login',
     url: '/login',
   },
+  {
+    name: 'Table',
+    url: '/table',
+  },
 ])
 </script>
 <template>
