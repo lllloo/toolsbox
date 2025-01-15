@@ -7,6 +7,13 @@
         <div
           class="flex w-full rounded-[10px] overflow-hidden bg-white shadow-[0_3px_10px_#3333331A] p-3"
         >
+          <WordGradientTitle />
+        </div>
+      </div>
+      <div>
+        <div
+          class="flex w-full rounded-[10px] overflow-hidden bg-white shadow-[0_3px_10px_#3333331A] p-3"
+        >
           <SwiperMenu />
         </div>
       </div>
