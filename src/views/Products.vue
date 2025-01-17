@@ -29,7 +29,7 @@ const randomColorList = [
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 @keyframes slidein {
   from {
     width: 0;

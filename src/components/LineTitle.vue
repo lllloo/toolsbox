@@ -11,7 +11,7 @@ defineProps({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .line-bg-gradient:before {
   background-image: linear-gradient(to bottom, #da8b41 0%, #da8b41 35%, #4e9875 35%, #4e9875 90%);
 }

@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .table-outer {
   overflow-x: auto;
   width: 100%;

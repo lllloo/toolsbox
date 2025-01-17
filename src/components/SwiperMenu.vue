@@ -29,4 +29,4 @@ const check = (index: number) => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

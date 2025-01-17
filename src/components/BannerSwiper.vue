@@ -51,7 +51,7 @@ const onInit = () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .swiper-wrap {
   --swiper-pagination-bottom: 0;
   --swiper-pagination-color: rgba(0, 0, 0, 0.7);
