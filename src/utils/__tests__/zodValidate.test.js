@@ -37,6 +37,45 @@ describe('validate success', () => {
   })
 })
 
+describe('validate default error', () => {
+  it('驗證失敗 必填', () => {
+    const data = {}
+    const result = validate(
+      z.object({
+        mobile: z.string(),
+      }),
+      data,
+    )
+    expect(!result.errors).toBe(false)
+    expect(result.errors).toEqual(
+      expect.objectContaining({
+        mobile: expect.objectContaining({
+          _errors: expect.arrayContaining(['必填']),
+        }),
+      }),
+    )
+  })
+  it('驗證失敗 型態錯誤', () => {
+    const data = {
+      mobile: 0,
+    }
+    const result = validate(
+      z.object({
+        mobile: z.string(),
+      }),
+      data,
+    )
+    expect(!result.errors).toBe(false)
+    expect(result.errors).toEqual(
+      expect.objectContaining({
+        mobile: expect.objectContaining({
+          _errors: expect.arrayContaining(['型態錯誤']),
+        }),
+      }),
+    )
+  })
+})
+
 describe('validate field', () => {
   it('驗證成功', () => {
     const data = {

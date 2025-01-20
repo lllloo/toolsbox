@@ -1,4 +1,13 @@
-import { Schema } from 'zod'
+import { z, Schema } from 'zod'
+
+const customErrorMap: z.ZodErrorMap = (error, ctx) => {
+  if (error.code === z.ZodIssueCode.invalid_type) {
+    if (ctx.defaultError === 'Required') return { message: '必填' }
+    return { message: '型態錯誤' }
+  }
+  return { message: ctx.defaultError }
+}
+z.setErrorMap(customErrorMap)
 
 /**
  * Zod 驗證
