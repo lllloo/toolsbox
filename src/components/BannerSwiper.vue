@@ -30,7 +30,7 @@ const onInit = () => {
         <div class="relative w-full h-full flex justify-center items-center">
           <h2
             :class="[
-              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] px-5 text-white text-5xl/tight font-bold bg-white/9 backdrop-blur',
+              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-1 px-5 text-white text-5xl/tight font-bold bg-white/9 backdrop-blur-sm',
               'sm:px-9 sm:text-7xl/tight',
             ]"
           >
@@ -39,7 +39,7 @@ const onInit = () => {
           <img
             :class="[
               'w-full h-full object-cover object-center scale-110 transition-all duration-500 delay-100',
-              isActive && '!scale-100',
+              isActive && 'scale-100!',
             ]"
             :src="item.image"
             alt=""

@@ -2,7 +2,7 @@
 
 <template>
   <div class="h-[calc(100dvh-130px)] relative flex-1">
-    <section class="p-4 grid grid-cols-[repeat(auto-fit,_minmax(340px,_1fr))] gap-4 bg-[#F5F5F5]">
+    <section class="p-4 grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-4 bg-[#F5F5F5]">
       <div>
         <div
           class="flex w-full rounded-[10px] overflow-hidden bg-white shadow-[0_3px_10px_#3333331A] p-3"
