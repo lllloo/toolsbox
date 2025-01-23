@@ -31,11 +31,6 @@ const router = createRouter({
       component: () => import('@/views/Cards.vue'),
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/Login.vue'),
-    },
-    {
       path: '/table',
       name: 'table',
       component: () => import('@/views/TableView.vue'),

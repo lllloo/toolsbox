@@ -53,9 +53,6 @@
         />
       </div>
       <div>
-        <LoginCard />
-      </div>
-      <div>
         <AnimationCard />
       </div>
     </section>

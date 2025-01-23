@@ -49,25 +49,6 @@ const list = ref([
           {{ item.name }}
         </a>
       </nav>
-      <Sheet>
-        <SheetTrigger as-child>
-          <Button variant="outline" size="icon" class="shrink-0 md:hidden">
-            <Icon icon="ic:menu" />
-            <span class="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="right">
-          <nav class="grid gap-6 text-lg font-medium">
-            <a href="#" class="flex items-center gap-2 text-lg font-semibold">
-              <Icon icon="ic:baseline-battery-charging-20" class="text-2xl" />
-              <span class="sr-only">Home</span>
-            </a>
-            <a v-for="item in list" :key="item.name" :href="item.url" class="hover:text-foreground">
-              {{ item.name }}
-            </a>
-          </nav>
-        </SheetContent>
-      </Sheet>
     </div>
   </header>
 </template>
