@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-vue": "^0.5.3",
+    "@primevue/themes": "^4.2.5",
     "@radix-icons/vue": "^1.0.0",
     "@vueuse/core": "^12.2.0",
     "axios": "^1.7.9",
@@ -24,6 +25,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "pinia": "^2.3.0",
+    "primevue": "^4.2.5",
     "qs": "^6.13.1",
     "radix-vue": "^1.9.11",
     "reka-ui": "^1.0.0-alpha.8",

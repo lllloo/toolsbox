@@ -11,11 +11,6 @@ const router = createRouter({
       meta: { layout: 'DefaultLayout' },
     },
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: () => import('@/views/Dashboard.vue'),
-    },
-    {
       path: '/banner',
       name: 'banner',
       component: () => import('@/views/Banner.vue'),
@@ -34,6 +29,11 @@ const router = createRouter({
       path: '/table',
       name: 'table',
       component: () => import('@/views/TableView.vue'),
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component: () => import('@/views/FormView.vue'),
     },
   ],
 })

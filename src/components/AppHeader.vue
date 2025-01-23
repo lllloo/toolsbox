@@ -5,10 +5,6 @@ const list = ref([
     url: '/',
   },
   {
-    name: 'Dashboard',
-    url: '/dashboard',
-  },
-  {
     name: 'Banner',
     url: '/banner',
   },
@@ -21,12 +17,12 @@ const list = ref([
     url: '/cards',
   },
   {
-    name: 'Login',
-    url: '/login',
-  },
-  {
     name: 'Table',
     url: '/table',
+  },
+  {
+    name: 'Form',
+    url: '/form',
   },
 ])
 </script>

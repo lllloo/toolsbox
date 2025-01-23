@@ -21,7 +21,7 @@ export default defineConfig({
     AutoImport({
       imports: ['vue', 'vue-router'],
       dts: true,
-      dirs: ['./src/utils'],
+      dirs: ['./src/utils', './src/composables'],
       vueTemplate: true,
     }),
     Components({
