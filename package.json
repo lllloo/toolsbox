@@ -19,6 +19,7 @@
     "@lottiefiles/dotlottie-vue": "^0.5.4",
     "@primevue/themes": "^4.2.5",
     "@tailwindcss/postcss": "^4.0.0",
+    "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^12.5.0",
     "axios": "^1.7.9",
     "big.js": "^6.2.2",
@@ -30,6 +31,7 @@
     "swiper": "^11.2.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.15.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "zod": "^3.24.1"

@@ -417,13 +417,9 @@ const data: CityData = {
  * - cityArea: 以縣市名稱為 key,該縣市所有的區域為 value 的物件
  * - cityAreaCode: 以縣市名稱為 key,該縣市所有區域與代碼的對應為 value 的物件
  */
-export function useCity() {
-  const city = ref('')
-  const area = ref('')
-
-  const code = computed(() => {
-    return city.value && area.value ? data[city.value][area.value] : ''
-  })
+export function useCity(cityValue: Ref, areaValue: Ref) {
+  const city = toRef(cityValue)
+  const area = toRef(areaValue)
 
   const list = reactive({
     city: Object.keys(data).reduce(
@@ -467,6 +463,6 @@ export function useCity() {
     list,
     city,
     area,
-    code,
+    // code,
   }
 }
