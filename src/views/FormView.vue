@@ -14,16 +14,21 @@ const { errors, handleSubmit, defineField } = useForm({
   validationSchema: toTypedSchema(schema),
 })
 
-type Schema = z.infer<typeof schema>
-type SchemaKey = keyof Schema
-const form = reactive<Schema>(schema.default({}))
+type FormValues = z.infer<typeof schema>
 
-Object.keys(schema.shape).forEach((key) => {
-  const [field] = defineField(key as SchemaKey)
-  form[key as SchemaKey] = field as unknown as string
+const form = reactive<Record<string, unknown>>({})
+
+const fields = Object.keys(schema.shape) as (keyof FormValues)[]
+
+fields.forEach((field) => {
+  ;[form[field]] = defineField(field)
 })
 
-const { list, city, area } = useCity(toRef(form, 'city'), toRef(form, 'area'))
+const { list } = useCity(toRef(form, 'city'), toRef(form, 'area'), toRef(form, 'code'))
+
+const submit = handleSubmit(async (values) => {
+  console.log(values)
+})
 </script>
 <template>
   <div>
@@ -33,21 +38,12 @@ const { list, city, area } = useCity(toRef(form, 'city'), toRef(form, 'area'))
           <div class="sm:col-span-6">
             {{ form }}
           </div>
-          <div class="sm:col-span-6">
-            cityV:{{ cityV }}<br />
-            areaV:{{ areaV }}<br />
-            <!-- codeV:{{ codeV }}<br /> -->
-
-            city:{{ city }}<br />
-            area:{{ area }}<br />
-            <!-- code:{{ code }}<br /> -->
-          </div>
           <div class="sm:col-span-4">
             <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
             <div class="mt-2">
               <Input v-model="form.username" class="w-full" />
             </div>
-            <Message>123</Message>
+            <Message>{{ errors?.username }}</Message>
           </div>
           <div class="sm:col-span-2"></div>
           <div class="sm:col-span-2">
@@ -55,19 +51,24 @@ const { list, city, area } = useCity(toRef(form, 'city'), toRef(form, 'area'))
             <div class="mt-2">
               <Select v-model="form.city" :options="list.city" />
             </div>
+            <Message>{{ errors?.city }}</Message>
           </div>
-          <!-- <div class="sm:col-span-2">
+          <div class="sm:col-span-2">
             <label for="area" class="block text-sm/6 font-medium text-gray-900">Area</label>
             <div class="mt-2">
               <Select v-model="form.area" :options="list.area" />
             </div>
-          </div> -->
-          <!-- <div class="sm:col-span-2">
+            <Message>{{ errors?.area }}</Message>
+          </div>
+          <div class="sm:col-span-2">
             <label for="code" class="block text-sm/6 font-medium text-gray-900">Code</label>
             <div class="mt-2">
               <Input v-model="form.code" readonly />
             </div>
-          </div> -->
+          </div>
+          <div class="sm:col-span-4">
+            <Button @click="submit">Submit</Button>
+          </div>
         </div>
       </form>
     </div>
