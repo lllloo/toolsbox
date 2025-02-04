@@ -18,10 +18,9 @@ type FormValues = z.infer<typeof schema>
 
 const form = reactive<Record<string, unknown>>({})
 
-const fields = Object.keys(schema.shape) as (keyof FormValues)[]
-
-fields.forEach((field) => {
-  ;[form[field]] = defineField(field)
+// 定義表單字段
+Object.keys(schema.shape).forEach((key) => {
+  ;[form[key]] = defineField(key as keyof FormValues)
 })
 
 const { list } = useCity(toRef(form, 'city'), toRef(form, 'area'), toRef(form, 'code'))

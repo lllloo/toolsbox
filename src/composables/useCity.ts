@@ -417,7 +417,7 @@ const data: CityData = {
  * - cityArea: 以縣市名稱為 key,該縣市所有的區域為 value 的物件
  * - cityAreaCode: 以縣市名稱為 key,該縣市所有區域與代碼的對應為 value 的物件
  */
-export function useCity(cityValue: Ref, areaValue: Ref, cityAreaCode: Ref) {
+export function useCity(cityValue?: Ref, areaValue?: Ref, cityAreaCode?: Ref) {
   const city = toRef(cityValue)
   const area = toRef(areaValue)
   const code = toRef(cityAreaCode)
@@ -462,10 +462,8 @@ export function useCity(cityValue: Ref, areaValue: Ref, cityAreaCode: Ref) {
 
   watch(
     () => area.value,
-    (value) => {
-      if (value) {
-        code.value = data[city.value]?.[area.value]
-      }
+    () => {
+      code.value = data[city.value]?.[area.value] || ''
     },
   )
 
