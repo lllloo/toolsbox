@@ -28,14 +28,10 @@ export const Size = {
     components: { Input, Icon },
     setup: () => ({ args }),
     template: `
-      <div class="flex gap-2">
-        <Input v-bind="args" v-model="args.value" size="xs"  />
-        <Input v-bind="args" v-model="args.value" size="sm"  />
-        <Input v-bind="args" v-model="args.value" size="default"  />
-        <Input v-bind="args" v-model="args.value" size="lg"  />
-        <Input v-bind="args" size="icon">
-          <Icon icon="ic:baseline-check" />
-        </Input>
+      <div class="flex items-center gap-2">
+        <Input v-bind="args" v-model="args.value" size="small" />
+        <Input v-bind="args" v-model="args.value" />
+        <Input v-bind="args" v-model="args.value" size="large" />
       </div>
     `,
   }),

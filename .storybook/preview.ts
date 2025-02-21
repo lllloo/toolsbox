@@ -2,14 +2,14 @@ import type { Preview } from '@storybook/vue3'
 import { setup } from '@storybook/vue3'
 
 import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura'
+import customAura from '../src/utils/customAura'
 
 import '@/assets/main.css'
 
 setup((app) => {
   app.use(PrimeVue, {
     theme: {
-      preset: Aura,
+      preset: customAura,
       options: {
         darkModeSelector: false || 'none',
       },

@@ -51,9 +51,9 @@ export const Size = {
     setup: () => ({ args }),
     template: `
       <div class="flex items-start gap-2">
-        <Button v-bind="args" v-html="args.default" size="sm"  />
+        <Button v-bind="args" v-html="args.default" size="small"  />
         <Button v-bind="args" v-html="args.default"  />
-        <Button v-bind="args" v-html="args.default" size="lg"  />
+        <Button v-bind="args" v-html="args.default" size="large"  />
         <Button v-bind="args">
           <Icon icon="ic:baseline-check" />
         </Button>
