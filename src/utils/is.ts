@@ -37,3 +37,21 @@ export const isUrl = (val: string): boolean => {
     return false
   }
 }
+
+/**
+ * 檢查值是否為有效的日期。
+ *
+ * @param x - 要檢查的值，可以是字串、數字或日期物件。
+ * @returns 如果值是有效的日期則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isValidDate(new Date()) // true
+ * isValidDate(new Date('invalid')) // false
+ * isValidDate('2023-01-01') // true
+ * isValidDate(1672531199000) // true
+ */
+export const isValidDate = (x: string | number | Date) => {
+  if (x === null || x === undefined) return false
+  const date = new Date(x)
+  return date instanceof Date && !isNaN(date.getTime())
+}
