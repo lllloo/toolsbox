@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { numberFormat, padStart, getRandom } from '../number'
 
 function itFail(fn) {
   it('應該回傳 空字串', () => {

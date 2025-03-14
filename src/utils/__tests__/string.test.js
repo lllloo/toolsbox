@@ -1,4 +1,5 @@
 import { describe, it, expect, afterEach, vi } from 'vitest'
+import { getUUID } from '../string'
 
 describe('getUUID', () => {
   afterEach(() => {

@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
+import { getImageInfo, getScaleSize, resizeImage, getImageUrl, base64ToBlob } from '../image'
 
 describe('取得圖片資訊', () => {
   afterEach(() => {

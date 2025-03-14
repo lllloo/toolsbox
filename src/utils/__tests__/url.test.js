@@ -3,6 +3,12 @@
  */
 
 import { describe, it, expect } from 'vitest'
+import {
+  getQueryParams,
+  objectToQueryString,
+  simpleGetQueryParams,
+  simpleObjectToQueryString,
+} from '../url'
 
 describe('取得查詢參數', () => {
   it('應該正確解析包含陣列的 URL 查詢參數', () => {

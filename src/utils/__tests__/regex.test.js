@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
+import { getHtmlImg, checkChinese } from '../regex'
 
 const html = `
 <div id="app">

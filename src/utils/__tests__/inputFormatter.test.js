@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { formatPositiveInteger, formatInteger, formatDecimal } from '../inputFormatter'
 
 /**
  * 一個一個輸入

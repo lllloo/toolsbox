@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeAll, afterEach, afterAll } from 'vitest'
 import { setupServer } from 'msw/node'
 import { http, HttpResponse } from 'msw'
+import { baseGet, basePost } from '../request'
 import * as alertModule from '@/utils/alert'
 
 const server = setupServer()

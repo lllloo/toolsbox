@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { checkTWID, checkPhoneNumber, checkEmail, checkUniformNumbers } from '../validate'
 
 describe('驗證身分證 checkTWID', () => {
   it('空字串 錯誤', () => {

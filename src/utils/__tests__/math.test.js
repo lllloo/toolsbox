@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { add, sub, mul, div, round } from '../math'
 
 describe('加法', () => {
   it('0.1 + 0.2 = 0.3', () => {

@@ -1,5 +1,6 @@
 import axios, { type AxiosError, type AxiosRequestConfig } from 'axios'
 import { alertError } from '@/utils/alert'
+import { cookies } from '@/utils/jsCookie'
 
 const errorCode: { [key: number]: string } = {
   400: '請求錯誤，請檢查您的輸入',
@@ -68,7 +69,7 @@ function basePatch(url: string, data?: AxiosRequestConfig['data'], config?: Axio
   return axiosInstance.patch(url, data, config)
 }
 
-const baseDel = (url: string, config: AxiosRequestConfig) => {
+const baseDel = (url: string, config?: AxiosRequestConfig) => {
   return axiosInstance.delete(url, config)
 }
 

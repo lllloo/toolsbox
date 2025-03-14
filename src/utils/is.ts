@@ -23,6 +23,91 @@ export const isObject = (val: unknown) => {
 }
 
 /**
+ * 檢查值是否為字串。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是字串則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isString('hello') // true
+ */
+export const isString = (val: unknown): val is string => {
+  return typeof val === 'string'
+}
+
+/**
+ * 檢查值是否為數字。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是數字則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isNumber(123) // true
+ * isNumber(NaN) // false
+ */
+export const isNumber = (val: unknown): val is number => {
+  return typeof val === 'number' && !isNaN(val)
+}
+
+/**
+ * 檢查值是否為函數。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是函數則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isFunction(() => {}) // true
+ */
+export const isFunction = (val: unknown): boolean => {
+  return typeof val === 'function'
+}
+
+/**
+ * 檢查值是否為 undefined。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是 undefined 則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isUndefined(undefined) // true
+ */
+export const isUndefined = (val: unknown): val is undefined => {
+  return val === undefined
+}
+
+/**
+ * 檢查值是否為 null。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是 null 則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isNull(null) // true
+ */
+export const isNull = (val: unknown): val is null => {
+  return val === null
+}
+
+/**
+ * 檢查值是否為空（空字串、空陣列、空物件）。
+ *
+ * @param val - 要檢查的值。
+ * @returns 如果值是空則返回 `true`，否則返回 `false`。
+ *
+ * @example
+ * isEmpty('') // true
+ * isEmpty([]) // true
+ * isEmpty({}) // true
+ */
+export const isEmpty = (val: unknown): boolean => {
+  if (val === null || val === undefined) return true
+  if (typeof val === 'string') return val.trim().length === 0
+  if (Array.isArray(val)) return val.length === 0
+  if (isObject(val)) return Object.keys(val).length === 0
+  return false
+}
+
+/**
  * 檢查給定的字串是否為有效的 URL。
  *
  * @param val - 要檢查的字串。

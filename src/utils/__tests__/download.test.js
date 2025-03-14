@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
+import { getDownloadFile, downloadBlob, downloadFile } from '../download'
 
 describe('取得下載檔案', () => {
   it('應該使用正確的Blob呼叫downloadBlob', () => {

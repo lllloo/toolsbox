@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { pasteWord } from '../input'
 
 describe('測試貼上文字', () => {
   it('測試貼上文字到文字區域', async () => {

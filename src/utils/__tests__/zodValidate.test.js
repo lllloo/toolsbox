@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { z } from 'zod'
+import { validate } from '../zodValidate'
 
 export const loginSchema = z.object({
   mobile: z

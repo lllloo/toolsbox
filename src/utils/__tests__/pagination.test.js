@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { getShowPageList } from '../pagination'
 
 describe('getShowPageList', () => {
   it('顯示正確的頁數 開頭', () => {
