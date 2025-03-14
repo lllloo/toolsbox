@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 
-describe('getImageInfo', () => {
+describe('取得圖片資訊', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
   })
@@ -60,7 +60,7 @@ describe('getImageInfo', () => {
   })
 })
 
-describe('getScaleSize', () => {
+describe('取得縮放尺寸', () => {
   it('如果在最大尺寸範圍內，應返回原始尺寸', () => {
     const size = getScaleSize({ width: 100, height: 100, maxWidth: 200, maxHeight: 200 })
     expect(size).toEqual({ width: 100, height: 100 })
@@ -77,9 +77,9 @@ describe('getScaleSize', () => {
   })
 })
 
-describe('resizeImage', () => {
+describe('調整圖片尺寸', () => {
   it('應該返回縮放後的圖片 URL', () => {
-    // happy-dom 不支持 HTMLCanvasElement，所以這裡使用 jest 的 mock
+    // happy-dom 不支援 HTMLCanvasElement，所以這裡使用 jest 的 mock
     const canvas = document.createElement('canvas')
     const createElementSpy = vi.spyOn(document, 'createElement').mockReturnValue(canvas)
     const getContext = vi.spyOn(canvas, 'getContext').mockReturnValue({ drawImage: () => {} })
@@ -96,12 +96,12 @@ describe('resizeImage', () => {
   })
 })
 
-describe('getImageUrl', () => {
+describe('取得圖片網址', () => {
   window.URL.createObjectURL = vi.fn()
   afterEach(() => {
     vi.restoreAllMocks()
   })
-  it('應該返回給定文件的 URL', () => {
+  it('應該返回給定檔案的 URL', () => {
     vi.spyOn(URL, 'createObjectURL').mockReturnValue('http://localhost/test')
     const file = new File([''], 'image.png', { type: 'image/png' })
     const url = getImageUrl(file)
@@ -109,8 +109,8 @@ describe('getImageUrl', () => {
   })
 })
 
-describe('base64ToBlob', () => {
-  it('應該將 base64 字符串轉換為 Blob', () => {
+describe('base64轉Blob', () => {
+  it('應該將 base64 字串轉換為 Blob', () => {
     const base64 =
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGAQMAAADaAn0LAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAZQTFRF////AAAAVcLTfgAAABJJREFUeJxjZGCsYPQAwgpGBgAJNgGHJv+ErAAAAABJRU5ErkJggg=='
     const blob = base64ToBlob(base64)

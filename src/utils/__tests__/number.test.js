@@ -63,8 +63,8 @@ describe('數字格式化', () => {
   })
 })
 
-describe('padStart', () => {
-  it('應該用默認的填充字串填充數字', () => {
+describe('補零', () => {
+  it('應該用預設的填充字串填充數字', () => {
     const result = padStart(123, 5)
     expect(result).toBe('00123')
   })
@@ -74,7 +74,7 @@ describe('padStart', () => {
     expect(result).toBe('xx123')
   })
 
-  it('應該用默認的填充字串填充字串', () => {
+  it('應該用預設的填充字串填充字串', () => {
     const result = padStart('abc', 5)
     expect(result).toBe('00abc')
   })
@@ -99,7 +99,7 @@ describe('padStart', () => {
   })
 })
 
-describe('getRandom', () => {
+describe('取得隨機數', () => {
   it('應該生成指定範圍內的隨機數', () => {
     const min = 1
     const max = 10
@@ -108,7 +108,7 @@ describe('getRandom', () => {
     expect(random).toBeLessThanOrEqual(max)
   })
 
-  it('當 min 和 max 相同時應該生成指定範圍內的隨機數', () => {
+  it('當最小值和最大值相同時應該返回該值', () => {
     const min = 5
     const max = 5
     const random = getRandom(min, max)

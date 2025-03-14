@@ -14,7 +14,7 @@ function oneByOneEnter(str, fn) {
   return value
 }
 
-describe('只能輸入正數字', () => {
+describe('只能輸入正整數', () => {
   /**
    * @param {string} value
    * @returns {string}
@@ -37,7 +37,7 @@ describe('只能輸入正數字', () => {
   })
 })
 
-describe('只能輸入負號跟數字', () => {
+describe('只能輸入整數（含負數）', () => {
   /**
    * @param {string} value
    * @returns {string}

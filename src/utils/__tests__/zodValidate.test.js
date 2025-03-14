@@ -9,7 +9,7 @@ export const loginSchema = z.object({
   password: z.string().min(1, { message: '必填' }).min(6, { message: '密碼至少6個字' }),
 })
 
-describe('validate success', () => {
+describe('驗證成功', () => {
   it('驗證成功', () => {
     const data = {
       mobile: '0987654321',
@@ -37,7 +37,7 @@ describe('validate success', () => {
   })
 })
 
-describe('validate default error', () => {
+describe('驗證預設錯誤', () => {
   it('驗證失敗 必填', () => {
     const data = {}
     const result = validate(
@@ -76,7 +76,7 @@ describe('validate default error', () => {
   })
 })
 
-describe('validate field', () => {
+describe('驗證欄位', () => {
   it('驗證成功', () => {
     const data = {
       mobile: '0987654321',
@@ -101,7 +101,7 @@ describe('validate field', () => {
   })
 })
 
-describe('validate default', () => {
+describe('驗證預設', () => {
   it('mobile 驗證成功', () => {
     const data = {}
     const result = validate(
@@ -119,8 +119,8 @@ describe('validate default', () => {
   })
 })
 
-describe('validate Number', () => {
-  it('mobile 驗證成功', () => {
+describe('驗證數字', () => {
+  it('number 驗證成功', () => {
     const schema = z.object({
       number: z.number().default(0),
     })
@@ -135,8 +135,8 @@ describe('validate Number', () => {
   })
 })
 
-describe('validate Array', () => {
-  it('mobile 驗證成功', () => {
+describe('驗證陣列', () => {
+  it('陣列驗證成功', () => {
     const data = {
       arr2: [1],
     }

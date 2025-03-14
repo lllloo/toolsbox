@@ -45,7 +45,7 @@ describe('驗證電子信箱 checkEmail', () => {
   })
 })
 
-describe('驗證身分證 checkUniformNumbers', () => {
+describe('驗證統一編號 checkUniformNumbers', () => {
   it('正常', () => {
     // 統一編號第7位數非
     expect(checkUniformNumbers('04595257')).toBe(true)

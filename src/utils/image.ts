@@ -3,7 +3,7 @@
  *
  * @param url - 圖片的 URL。
  * @returns 包含圖片寬度和高度的 Promise。
- * @throws 如果圖片加載失敗，則返回錯誤。
+ * @throws 如果圖片載入失敗，則返回錯誤。
  */
 export const getImageInfo = async (url: string) => {
   const img = new Image()

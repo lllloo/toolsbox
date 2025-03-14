@@ -11,7 +11,7 @@ type StringifyParameters = Parameters<typeof qs.stringify>
  * const url = '?name=John&age=30';
  * getQueryParams(url); // { name: 'John', age: '30' }
  */
-export const getQueryParams = (url: string, options: ParseParameters[1]) => {
+export const getQueryParams = (url: string, options?: ParseParameters[1]) => {
   return qs.parse(url, {
     ignoreQueryPrefix: true /* 忽略前綴問號 */,
     ...options,
@@ -31,7 +31,7 @@ export const getQueryParams = (url: string, options: ParseParameters[1]) => {
  */
 export function objectToQueryString(
   params: StringifyParameters[0],
-  options: StringifyParameters[1],
+  options?: StringifyParameters[1],
 ) {
   return qs.stringify(params, {
     arrayFormat: 'repeat',

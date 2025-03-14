@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-describe('isArray', () => {
+describe('是否為陣列', () => {
   it('應該對陣列返回 true', () => {
     expect(isArray([])).toBe(true)
     expect(isArray([1, 2, 3])).toBe(true)
@@ -15,7 +15,7 @@ describe('isArray', () => {
   })
 })
 
-describe('isObject', () => {
+describe('是否為物件', () => {
   it('應該對物件返回 true', () => {
     expect(isObject({})).toBe(true)
     expect(isObject({ a: 1 })).toBe(true)
@@ -30,20 +30,20 @@ describe('isObject', () => {
   })
 })
 
-describe('isUrl', () => {
-  it('應該對有效的 URL 返回 true', () => {
+describe('是否為網址', () => {
+  it('應該對有效的網址返回 true', () => {
     expect(isUrl('https://www.example.com')).toBe(true)
     expect(isUrl('http://example.com')).toBe(true)
   })
 
-  it('應該對無效的 URL 返回 false', () => {
+  it('應該對無效的網址返回 false', () => {
     expect(isUrl('not a url')).toBe(false)
     expect(isUrl('www.example.com')).toBe(false)
     expect(isUrl('')).toBe(false)
   })
 })
 
-describe('isValidDate', () => {
+describe('是否為有效日期', () => {
   it('應該對有效的日期物件返回 true', () => {
     expect(isValidDate(new Date())).toBe(true)
     expect(isValidDate(new Date('2023-01-01'))).toBe(true)

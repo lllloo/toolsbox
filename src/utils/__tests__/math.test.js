@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 describe('加法', () => {
-  it('0.1 + 0.2  = 0.3', () => {
+  it('0.1 + 0.2 = 0.3', () => {
     // 0.30000000000000004
     expect(add(0.1, 0.2)).toBe(0.3)
     expect(add(0.1, 0.2, 0.3)).toBe(0.6)
@@ -41,7 +41,7 @@ describe('除法', () => {
 })
 
 describe('四捨五入', () => {
-  it('0.556', () => {
+  it('0.556 測試', () => {
     expect(round(0.554)).toBe(0.55)
     expect(round(0.555)).toBe(0.56)
     expect(round(0.556)).toBe(0.56)

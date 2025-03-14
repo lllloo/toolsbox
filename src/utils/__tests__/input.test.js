@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
-describe('測試 pasteWord', () => {
-  it('測試貼上文字', async () => {
+describe('測試貼上文字', () => {
+  it('測試貼上文字到文字區域', async () => {
     const textarea = document.createElement('textarea')
     textarea.innerHTML = 'hello  world'
     textarea.selectionStart = 6
@@ -12,7 +12,7 @@ describe('測試 pasteWord', () => {
     expect(textarea.selectionStart).toBe(13)
   })
 
-  it('測試 沒帶參數', async () => {
+  it('測試沒帶參數', async () => {
     expect(pasteWord(null, 'goodbye')).toBe(undefined)
   })
 })

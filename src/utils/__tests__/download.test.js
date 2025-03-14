@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 
-describe('getDownloadFile', () => {
-  it('應該使用正確的Blob調用downloadBlob', () => {
+describe('取得下載檔案', () => {
+  it('應該使用正確的Blob呼叫downloadBlob', () => {
     const mockResponse = {
       data: new Blob(['測試數據'], { type: 'text/plain' }),
       headers: { 'content-type': 'text/plain' },
@@ -12,14 +12,14 @@ describe('getDownloadFile', () => {
   })
 })
 
-describe('downloadBlob', () => {
+describe('下載Blob', () => {
   window.URL.createObjectURL = vi.fn()
   window.URL.revokeObjectURL = vi.fn()
   afterEach(() => {
     vi.restoreAllMocks()
   })
 
-  it('應該創建一個對象URL並觸發下載', () => {
+  it('應該建立一個物件網址並觸發下載', () => {
     const blob = new Blob(['test'], { type: 'text/plain' })
     const mockUrl = 'blob:http://example.com/blob'
     const createObjectURLSpy = vi.spyOn(window.URL, 'createObjectURL').mockReturnValue(mockUrl)
@@ -33,7 +33,7 @@ describe('downloadBlob', () => {
     expect(revokeObjectURLSpy).toHaveBeenCalledWith(mockUrl)
   })
 
-  it('如果未提供函數，應該使用默認的下載檔案函數', () => {
+  it('如果未提供函數，應該使用預設的下載檔案函數', () => {
     const blob = new Blob(['test'], { type: 'text/plain' })
     const mockUrl = 'blob:http://example.com/blob'
 
@@ -50,12 +50,12 @@ describe('downloadBlob', () => {
   })
 })
 
-describe('downloadFile', () => {
+describe('下載檔案', () => {
   afterEach(() => {
     vi.restoreAllMocks()
   })
 
-  it('應該創建一個鏈接並觸發下載', () => {
+  it('應該建立一個連結並觸發下載', () => {
     const link = document.createElement('a')
     link.click = vi.fn()
     vi.spyOn(document, 'createElement').mockReturnValue(link)

@@ -2,7 +2,7 @@
  * 檢查值是否為陣列。
  *
  * @param value - 要檢查的值。
- * @returns  如果值是陣列則返回 `true`，否則返回 `false`。
+ * @returns 如果值是陣列則返回 `true`，否則返回 `false`。
  *
  * @example
  * isArray([]) // true
@@ -12,8 +12,8 @@ export const isArray = Array.isArray
 /**
  * 檢查值是否為物件。
  *
- * @param  val - 要檢查的值。
- * @returns  如果值是物件則返回 `true`，否則返回 `false`。
+ * @param val - 要檢查的值。
+ * @returns 如果值是物件則返回 `true`，否則返回 `false`。
  *
  * @example
  * isObject({}) // true

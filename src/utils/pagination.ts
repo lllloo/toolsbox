@@ -1,39 +1,46 @@
 /**
  * 取得分頁列表
  * @param {Number} current 當前頁面
- * @param {Number} pageCount 總共幾頁
- * @param {Number} totalToDisplayPage 總共顯示幾頁
- * @returns {Array} 分頁列表
+ * @param {Number} pageCount 總頁數
+ * @param {Number} maxVisiblePages 最大可見頁數
+ * @returns {Number[]} 分頁列表
  * @example
  * getShowPageList(1, 10, 5) // [1, 2, 3, 4, 5]
  */
-export const getShowPageList = (current: number, pageCount: number, totalToDisplayPage: number) => {
-  const pages = []
-  const maxPagesToShow = totalToDisplayPage
-  let startPage, endPage
+export const getShowPageList = (
+  current: number,
+  pageCount: number,
+  maxVisiblePages: number,
+): number[] => {
+  // 參數驗證與預處理
+  const validCurrent = Math.max(1, Math.min(current, pageCount))
+  const validMaxVisible = Math.max(1, maxVisiblePages)
 
-  if (pageCount <= maxPagesToShow) {
+  // 如果總頁數小於等於最大可見頁數，直接返回所有頁碼
+  if (pageCount <= validMaxVisible) {
+    return Array.from({ length: pageCount }, (_, i) => i + 1)
+  }
+
+  // 計算開始和結束頁碼
+  let startPage: number
+  let endPage: number
+
+  const half = Math.floor(validMaxVisible / 2)
+
+  if (validCurrent <= half + 1) {
+    // 當前頁在前半部分
     startPage = 1
+    endPage = validMaxVisible
+  } else if (validCurrent >= pageCount - half) {
+    // 當前頁在後半部分
+    startPage = pageCount - validMaxVisible + 1
     endPage = pageCount
   } else {
-    if (current <= Math.ceil(maxPagesToShow / 2)) {
-      startPage = 1
-      endPage = maxPagesToShow
-    } else if (current + Math.floor(maxPagesToShow / 2) >= pageCount) {
-      startPage = pageCount - maxPagesToShow + 1
-      endPage = pageCount
-    } else {
-      startPage = current - Math.floor(maxPagesToShow / 2)
-      endPage = current + Math.floor(maxPagesToShow / 2)
-    }
+    // 當前頁在中間
+    startPage = validCurrent - half
+    endPage = validCurrent + validMaxVisible - half - 1
   }
 
-  for (let i = startPage; i <= endPage; i++) {
-    pages.push(i)
-  }
-
-  // if (startPage > 1) pages.unshift('...')
-  // if (endPage < pageCount) pages.push('...')
-
-  return pages
+  // 生成頁碼陣列
+  return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i)
 }

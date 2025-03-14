@@ -19,7 +19,7 @@ export const numberFormat = (value: number | string): string | number => {
  *
  * @param value - 要填充的值，可以是數字或字串。
  * @param length - 填充後的目標字串長度。
- * @param padString - 用來填充當前字串的字串。默認為 '0'。
+ * @param padString - 用來填充當前字串的字串。預設為 '0'。
  * @returns 填充後的字串，如果失敗則返回原始值。
  * @example
  * padStart(1, 2) // "01"

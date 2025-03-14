@@ -30,31 +30,26 @@ export const checkUniformNumbers = (value: string) => {
   const code = [1, 2, 1, 2, 1, 2, 4, 1]
   let weightsNum = 0
 
-  if (value[6] !== '7') {
-    weightsNum = [...value].reduce((acc, cur, i) => {
-      let number = parseInt(cur) * code[i]
-      if (number >= 10) {
-        const moreThen10 = `${number}`
-        number = parseInt(moreThen10[0]) + parseInt(moreThen10[1])
-      }
-      return acc + number
-    }, 0)
-    return weightsNum % 5 === 0
-  }
+  const processDigit = (cur: string, i: number) => {
+    if (value[6] === '7' && i === 6) return 0
 
-  // 第7位數為7
-  weightsNum = [...value].reduce((acc, cur, i) => {
-    if (i === 6) {
-      return acc
-    }
     let number = parseInt(cur) * code[i]
     if (number >= 10) {
       const moreThen10 = `${number}`
       number = parseInt(moreThen10[0]) + parseInt(moreThen10[1])
     }
-    return acc + number
+    return number
+  }
+
+  weightsNum = [...value].reduce((acc, cur, i) => {
+    return acc + processDigit(cur, i)
   }, 0)
-  return weightsNum % 5 === 0 || (weightsNum + 1) % 5 === 0
+
+  if (value[6] === '7') {
+    return weightsNum % 5 === 0 || (weightsNum + 1) % 5 === 0
+  }
+
+  return weightsNum % 5 === 0
 }
 
 /**
